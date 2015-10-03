@@ -88,6 +88,11 @@ public class EarthquakeCityMap extends PApplet {
 	    int yellow = color(255, 255, 0);
 	    
 	    //TODO: Add code here as appropriate
+		
+		for (PointFeature eq : f)
+		{
+			markers.add(new SimplePounMarker(CreateMarker(eq));
+		}
 	}
 		
 	// A suggested helper method that takes in an earthquake feature and 
@@ -96,6 +101,8 @@ public class EarthquakeCityMap extends PApplet {
 	private SimplePointMarker createMarker(PointFeature feature)
 	{
 		// finish implementing and use this method, if it helps.
+		
+		
 		return new SimplePointMarker(feature.getLocation());
 	}
 	
