@@ -12,6 +12,7 @@ import processing.core.PApplet;
 //Unfolding libraries
 import de.fhpotsdam.unfolding.UnfoldingMap;
 import de.fhpotsdam.unfolding.marker.Marker;
+import de.fhpotsdam.unfolding.data.Feature;
 import de.fhpotsdam.unfolding.data.PointFeature;
 import de.fhpotsdam.unfolding.marker.SimplePointMarker;
 import de.fhpotsdam.unfolding.providers.Google;
@@ -88,11 +89,10 @@ public class EarthquakeCityMap extends PApplet {
 	    int yellow = color(255, 255, 0);
 	    
 	    //TODO: Add code here as appropriate
-		
-		for (PointFeature eq : f)
-		{
-			markers.add(new SimplePounMarker(CreateMarker(eq));
-		}
+	    int i = 0;
+	    for (PointFeature eq : earthquakes)
+	    	markers.add(createMarker(earthquakes.get(i++)));
+	    map.addMarkers(markers);
 	}
 		
 	// A suggested helper method that takes in an earthquake feature and 
@@ -101,7 +101,10 @@ public class EarthquakeCityMap extends PApplet {
 	private SimplePointMarker createMarker(PointFeature feature)
 	{
 		// finish implementing and use this method, if it helps.
-		
+		float mag = Float.parseFloat(feature.);
+		if (mag > 5.0) {
+			
+	    }
 		
 		return new SimplePointMarker(feature.getLocation());
 	}
