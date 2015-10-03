@@ -100,13 +100,29 @@ public class EarthquakeCityMap extends PApplet {
 	// TODO: Implement this method and call it from setUp, if it helps
 	private SimplePointMarker createMarker(PointFeature feature)
 	{
-		// finish implementing and use this method, if it helps.
-		float mag = Float.parseFloat(feature.);
-		if (mag > 5.0) {
-			
-	    }
-		
-		return new SimplePointMarker(feature.getLocation());
+	    SimplePointMarker spm = new SimplePointMarker(feature.getLocation());
+	   
+	    Object magObj = feature.getProperty("magnitude");
+		float mag = Float.parseFloat(magObj.toString());
+			if (mag < 4.0) {
+				spm.setRadius(10);
+				int green = color(0, 255, 0);
+				spm.setColor(green);
+			}
+			else
+				if (mag < 5.0) {
+					spm.setRadius(20);
+					int blue = color(0, 0, 255);
+					spm.setColor(blue);
+				}
+				else
+					if (mag >= 5.0) {
+						spm.setRadius(30);
+						int red = color(255, 0, 0);
+						spm.setColor(red);
+					}
+	    spm.setRadius(10);
+		return spm;
 	}
 	
 	public void draw() {
