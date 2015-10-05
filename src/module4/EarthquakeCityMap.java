@@ -167,7 +167,15 @@ public class EarthquakeCityMap extends PApplet {
 		// TODO: Implement this method using the helper method isInCountry
 		
 		// not inside any country
-		return false;
+		
+		boolean inCountry=false;
+		
+		for(Marker country : countryMarkers)
+			if(isInCountry(earthquake, country)) 
+				inCountry = true;
+			else inCountry = false;
+		
+		return inCountry;
 	}
 	
 	// prints countries with number of earthquakes
@@ -179,6 +187,33 @@ public class EarthquakeCityMap extends PApplet {
 	private void printQuakes() 
 	{
 		// TODO: Implement this method
+		int count = 0;
+		String countryMarkerCountry;
+		String quakeMarkerCountry;
+		int countInLand=0;
+		int countInOcean = 0;
+
+		boolean oceanCounted = false;
+		for(Marker country : countryMarkers) 
+			{
+			countInLand = 0;
+			countInOcean = 0;
+			countryMarkerCountry = country.getStringProperty("name");
+			
+					for(Marker earthquake : quakeMarkers) 
+					{
+						quakeMarkerCountry = earthquake.getStringProperty("country");
+						if(quakeMarkerCountry==null) 
+						{
+							if(!oceanCounted) countInOcean++;
+						}
+						else
+							if(countryMarkerCountry.equals(quakeMarkerCountry))	countInLand++;
+						
+					}
+					if(countInLand>0) System.out.println(countryMarkerCountry + ": " + countInLand);	
+			}
+		System.out.println("Earthquakes in ocean: " + countInOcean);
 	}
 	
 	
