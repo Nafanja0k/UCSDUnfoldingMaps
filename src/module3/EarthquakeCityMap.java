@@ -55,7 +55,7 @@ public class EarthquakeCityMap extends PApplet {
 		size(950, 600, OPENGL);
 
 		if (offline) {
-		    map = new UnfoldingMap(this, 200, 50, 700, 500, new MBTilesMapProvider(mbTilesString));
+		    map = new UnfoldingMap(this, 200, 50, width-200, height-50, new MBTilesMapProvider(mbTilesString));
 		    earthquakesURL = "2.5_week.atom"; 	// Same feed, saved Aug 7, 2015, for working offline
 		}
 		else {
@@ -137,6 +137,22 @@ public class EarthquakeCityMap extends PApplet {
 	private void addKey() 
 	{	
 		// Remember you can use Processing's graphics methods here
+		
+		fill(255, 255, 255);
+		rect(10, 50, 150, 450);
+		
+		fill(0, 0, 0);
+		text("Legend", 30, 70);
+		
+		fill(0, 255, 0);
+		ellipse(30, 120, 10, 10);
+		
+		fill(0, 0, 255);
+		ellipse(30, 150, 20, 20);
+		
+		fill(255, 0, 0);
+		ellipse(30, 200, 30, 30);
+		
 	
 	}
 }
