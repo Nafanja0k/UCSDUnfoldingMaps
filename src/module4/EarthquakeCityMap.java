@@ -168,14 +168,12 @@ public class EarthquakeCityMap extends PApplet {
 		
 		// not inside any country
 		
-		boolean inCountry=false;
-		
+	
 		for(Marker country : countryMarkers)
 			if(isInCountry(earthquake, country)) 
-				inCountry = true;
-			else inCountry = false;
+				return true;
 		
-		return inCountry;
+		return false;
 	}
 	
 	// prints countries with number of earthquakes
@@ -187,7 +185,7 @@ public class EarthquakeCityMap extends PApplet {
 	private void printQuakes() 
 	{
 		// TODO: Implement this method
-		int count = 0;
+
 		String countryMarkerCountry;
 		String quakeMarkerCountry;
 		int countInLand=0;
