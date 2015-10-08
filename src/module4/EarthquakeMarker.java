@@ -75,9 +75,24 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 	// We suggest: Deep = red, intermediate = blue, shallow = yellow
 	// But this is up to you, of course.
 	// You might find the getters below helpful.
-	private void colorDetermine(PGraphics pg) {
+	private void colorDetermine(PGraphics pg){
 		//TODO: Implement this method
+	
+if (!isOnLand()) 
+		{
+			if (getDepth()>=THRESHOLD_DEEP) pg.color(255, 0, 0);
+			else
+				if (getDepth()>=THRESHOLD_INTERMEDIATE) pg.color(0, 0, 255);
+				else
+					if (getDepth()<THRESHOLD_INTERMEDIATE) pg.color(255, 256, 0);
+		}
+		else
+		{
+			if (getMagnitude()>=THRESHOLD_MODERATE) pg.color(255, 0, 0);
+		}
+		
 	}
+}
 	
 	
 	/*
