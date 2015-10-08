@@ -78,21 +78,21 @@ public abstract class EarthquakeMarker extends SimplePointMarker
 	private void colorDetermine(PGraphics pg){
 		//TODO: Implement this method
 	
-if (!isOnLand()) 
+		if (!isOnLand()) 
 		{
-			if (getDepth()>=THRESHOLD_DEEP) pg.color(255, 0, 0);
+			if (getDepth()>=THRESHOLD_DEEP) pg.fill(255, 0, 0);
 			else
-				if (getDepth()>=THRESHOLD_INTERMEDIATE) pg.color(0, 0, 255);
+				if (getDepth()>=THRESHOLD_INTERMEDIATE) pg.fill(0, 0, 255);
 				else
-					if (getDepth()<THRESHOLD_INTERMEDIATE) pg.color(255, 256, 0);
+					if (getDepth()<THRESHOLD_INTERMEDIATE) pg.fill(255, 256, 0);
 		}
 		else
 		{
-			if (getMagnitude()>=THRESHOLD_MODERATE) pg.color(255, 0, 0);
+			if (getMagnitude()>=THRESHOLD_MODERATE) pg.fill(255, 0, 0);
 		}
 		
 	}
-}
+	
 	
 	
 	/*
