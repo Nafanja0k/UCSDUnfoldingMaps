@@ -1,6 +1,12 @@
 package module5;
 
+import java.awt.geom.FlatteningPathIterator;
+import java.security.acl.LastOwnerException;
+
+import com.jogamp.opengl.util.packrect.Rect;
+
 import de.fhpotsdam.unfolding.data.PointFeature;
+import processing.core.PConstants;
 import processing.core.PGraphics;
 
 /** Implements a visual marker for earthquakes on an earthquake map
@@ -94,7 +100,12 @@ public abstract class EarthquakeMarker extends CommonMarker
 	public void showTitle(PGraphics pg, float x, float y)
 	{
 		// TODO: Implement this method
-		
+		pg.pushStyle();
+		pg.rectMode(PConstants.CORNER);
+		pg.rect(x+15,y+15,115,65);
+		pg.fill(0,0,0);
+		pg.text(this.getTitle(), x+25, y+25,100,50);
+		pg.popStyle();
 	}
 
 	
@@ -153,8 +164,6 @@ public abstract class EarthquakeMarker extends CommonMarker
 	{
 		return isOnLand;
 	}
-	
 
-	
 	
 }
